@@ -20,12 +20,19 @@ const initialFriends = [
     balance: 0
   }
 ]
+const Button = ({ children, onToggleAddFriend }) => {
+  return (
+    <button onClick={onToggleAddFriend} className="button">
+      {children}
+    </button>
+  )
+}
 
 const App = () => {
   // const [friends, setFriends] = useState(initialFriends)
   const [showAddFriend, setShowAddFriend] = useState(false)
 
-  const handleToggleAddFriend = e => {
+  const handleShowAddFriend = e => {
     e.preventDefault()
     setShowAddFriend(prev => !prev)
   }
@@ -37,7 +44,7 @@ const App = () => {
         {showAddFriend ? (
           <AddFriend />
         ) : (
-          <Button onToggleAddFriend={handleToggleAddFriend}>Add Friend</Button>
+          <Button onToggleAddFriend={handleShowAddFriend}>Add Friend</Button>
         )}
       </div>
       <SplitBill />
@@ -112,14 +119,6 @@ const SplitBill = () => {
 
       <Button>Split</Button>
     </form>
-  )
-}
-
-const Button = ({ children, onToggleAddFriend }) => {
-  return (
-    <button onClick={onToggleAddFriend} className="button">
-      {children}
-    </button>
   )
 }
 
