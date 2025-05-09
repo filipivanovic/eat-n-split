@@ -41,11 +41,10 @@ const App = () => {
     <div className="app">
       <div className="sidebar">
         <FriendsList />
-        {showAddFriend ? (
-          <AddFriend />
-        ) : (
-          <Button onToggleAddFriend={handleShowAddFriend}>Add Friend</Button>
-        )}
+        {showAddFriend && <AddFriend />}
+        <Button onToggleAddFriend={handleShowAddFriend}>
+          {showAddFriend ? 'Close' : 'Add Friend'}
+        </Button>
       </div>
       <SplitBill />
     </div>
@@ -88,9 +87,9 @@ const Friend = ({ friend }) => {
 const AddFriend = () => {
   return (
     <form className="form-add-friend">
-      <label>Friend name</label>
+      <label>🧑‍🤝‍🧑Friend name</label>
       <input type="text" />
-      <label>Image URL</label>
+      <label>🧙‍♂️Image URL</label>
       <input type="text" />
       <Button>Add</Button>
     </form>
@@ -102,16 +101,16 @@ const SplitBill = () => {
     <form className="form-split-bill">
       <h2>Split a bill with XXXXXX</h2>
 
-      <label>Bill Value</label>
+      <label>💰Bill Value</label>
       <input type="text" />
 
-      <label>Your Expense</label>
+      <label>👨‍🦱Your Expense</label>
       <input type="number" />
 
-      <label>XXXXX Expense</label>
+      <label>🧑‍🤝‍🧑XXXXXX Expense</label>
       <input type="number" />
 
-      <label>Who is paying the bill?</label>
+      <label>💸Who is paying the bill?</label>
       <select>
         <option>You</option>
         <option>XXXXXX</option>
