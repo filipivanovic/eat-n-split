@@ -70,7 +70,7 @@ const App = () => {
         <Button onClick={handleShowAddFriend}>{showAddFriend ? 'Close' : 'Add Friend'}</Button>
       </div>
       {selectedFriend && (
-        <SplitBill onSplitBill={handleSplitBill} selectedFriend={selectedFriend} />
+        <SplitBill onSplitBill={handleSplitBill} selectedFriend={selectedFriend} key={selectedFriend.id} />
       )}
     </div>
   )
